@@ -462,8 +462,10 @@
       </header>
 
       <!-- FormSubmit emails each submission to help@clearpathdocumentservice.com. The first submission sends an activation email to that address; click the link in it once. -->
-      <form id="inquiry" action="https://formsubmit.co/ajax/help@clearpathdocumentservice.com" method="POST" novalidate>
+      <form id="inquiry" action="https://formsubmit.co/help@clearpathdocumentservice.com" method="POST" novalidate>
         <input type="hidden" name="_subject" value="New client intake form">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://www.clearpathdocumentservice.com/?sent=1#inquiry">
         <div class="hp" aria-hidden="true"><label for="gotcha">Leave this field empty</label><input type="text" id="gotcha" name="_honey" tabindex="-1" autocomplete="off"></div>
 
         <h3 class="form-section">Personal information</h3>
@@ -480,11 +482,11 @@
           </div>
           <div class="field">
             <label class="lab" for="dob">Date of birth</label>
-            <input type="text" id="dob" name="date_of_birth" placeholder="MM/DD/YYYY" autocomplete="bday" inputmode="numeric">
+            <input type="date" id="dob" name="date_of_birth" placeholder="MM/DD/YYYY" autocomplete="bday" inputmode="numeric">
           </div>
           <div class="field">
             <label class="lab" for="phone">Phone number</label>
-            <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" autocomplete="tel" aria-describedby="e-contact">
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="(555) 555-5555" autocomplete="tel" aria-describedby="e-contact">
           </div>
           <div class="field span2">
             <label class="lab" for="email">Email address</label>
@@ -616,6 +618,7 @@
   try { $('yr').textContent = new Date().getFullYear(); } catch (e) {}
   function setDate() { try { $('sigdate').value = new Date().toLocaleDateString('en-US'); } catch (e) {} }
   setDate();
+  if (/[?&]sent=1/.test(location.search)) { say('ok', 'Thank you. Your request is on its way to us. We will contact you soon.'); }
 
   copyBtn.addEventListener('click', function () {
     var ok = function () { copyBtn.textContent = 'Copied'; setTimeout(function () { copyBtn.textContent = 'Copy link'; }, 2000); };
@@ -655,18 +658,7 @@
 
     send.disabled = true;
     say('ok', 'Sending your request...');
-    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
-      .then(function (r) {
-        if (r.ok) {
-          form.reset();
-          setDate();
-          say('ok', 'Thank you. Your request is on its way to us. We will contact you soon.');
-        } else {
-          say('bad', 'Something went wrong and your request was not sent. Please try again in a moment.');
-        }
-      })
-      .catch(function () { say('bad', 'Something went wrong and your request was not sent. Please try again in a moment.'); })
-      .then(function () { send.disabled = false; });
+    form.submit();
   });
 })();
 </script>

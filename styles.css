@@ -127,7 +127,7 @@ form { background: #fff; border-radius: 12px; padding: 36px; box-shadow: 0 4px 2
 .field { margin-bottom: 20px; min-width: 0; }
 label.lab { display: block; font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
 .hint { display: block; color: var(--muted); font-size: 13.5px; margin-bottom: 6px; }
-input[type="text"], input[type="email"], input[type="tel"], select, textarea {
+input[type="text"], input[type="email"], input[type="tel"], input[type="date"], select, textarea {
   width: 100%; font: inherit; font-size: 16px; color: var(--ink); background: #fafafa;
   border: 1.5px solid var(--line); border-radius: 6px; min-height: 46px; padding: 10px 14px; transition: border-color .2s;
 }
