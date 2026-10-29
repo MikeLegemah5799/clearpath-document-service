@@ -461,10 +461,10 @@
         <p>Prefer to reach us directly? Email <a href="mailto:help@clearpathdocumentservice.com">help@clearpathdocumentservice.com</a> or call or text <a href="tel:+13478543430">347-854-3430</a>.</p>
       </header>
 
-      <!-- EDIT: replace YOUR_FORM_ID with the ID of your Formspree form. Formspree emails you each submission. -->
-      <form id="inquiry" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+      <!-- FormSubmit emails each submission to help@clearpathdocumentservice.com. The first submission sends an activation email to that address; click the link in it once. -->
+      <form id="inquiry" action="https://formsubmit.co/ajax/help@clearpathdocumentservice.com" method="POST" novalidate>
         <input type="hidden" name="_subject" value="New client intake form">
-        <div class="hp" aria-hidden="true"><label for="gotcha">Leave this field empty</label><input type="text" id="gotcha" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+        <div class="hp" aria-hidden="true"><label for="gotcha">Leave this field empty</label><input type="text" id="gotcha" name="_honey" tabindex="-1" autocomplete="off"></div>
 
         <h3 class="form-section">Personal information</h3>
         <div class="grid2">
@@ -653,10 +653,6 @@
     if (noAck) { ack.focus(); return; }
     if (noSig) { sig.focus(); return; }
 
-    if (form.action.indexOf('YOUR_FORM_ID') !== -1) {
-      say('bad', 'This form is not connected to email yet, so nothing was sent. The site owner needs to finish setup.');
-      return;
-    }
     send.disabled = true;
     say('ok', 'Sending your request...');
     fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
