@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Client Service Contract | Clear Path Document Service</title>
+<meta name="description" content="Clear Path Document Service client service contract.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1C2B3A">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  .terms { background: #fff; border-radius: 12px; padding: 36px; box-shadow: 0 4px 24px rgba(0,0,0,.07); margin-bottom: 24px; }
+  .terms h3.form-section { margin-top: 32px; }
+  .terms h3.form-section:first-child { margin-top: 0; }
+  .terms p, .terms li { font-size: 15px; color: #3b4651; line-height: 1.75; }
+  .terms p { max-width: none; margin-bottom: 12px; }
+  .terms ul { margin: 0 0 12px 22px; }
+  .terms li { margin-bottom: 8px; }
+  .terms li::marker { color: var(--amber); }
+  .contract-form { margin-bottom: 24px; }
+  .contract-form .notice, .terms .notice { margin: 4px 0 12px; }
+  .terms .notice.dark { background: var(--navy); border-color: var(--navy); color: var(--soft); }
+  .terms .notice.dark strong { color: var(--amber); }
+  .terms .notice.dark p { color: var(--soft); }
+  .fee-note { margin-top: -8px; }
+  .print-bar { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
+  .print-bar .btn { width: auto; }
+  .btn.outline { background: transparent; color: var(--navy)!important; border: 1.5px solid var(--navy); }
+  .btn.outline:hover { background: var(--navy); color: var(--cream)!important; }
+  form.contract-form .btn.outline { width: auto; }
+  @media print {
+    nav, .callbar, .print-bar, #send, #status, .hero .hero-cta { display: none !important; }
+    body { padding: 0; background: #fff; }
+    section { padding: 24px 0; }
+    .hero { min-height: 0; padding: 24px; }
+    form, .terms { box-shadow: none; }
+    input, select, textarea { border: 0; border-bottom: 1px solid #999; background: #fff; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand"><a href="../" style="text-decoration:none;color:inherit">Clear <span>Path</span> Document Service</a></div>
+  <ul class="nav-links">
+    <li><a href="tel:+13478543430">347-854-3430</a></li>
+    <li><a class="nav-cta" href="mailto:help@clearpathdocumentservice.com">Email us</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section class="hero compact" aria-labelledby="hero-h">
+    <div class="inner">
+      <div>
+        <p class="eyebrow" style="color:var(--mint)">Client Service Contract</p>
+        <h1 id="hero-h" class="long">Let's get your paperwork <em>started</em></h1>
+        <p class="sub">Please read the terms below, fill in your details and sign. Once we receive your signed contract and the $50 booking deposit, we will confirm your appointment.</p>
+        <p class="micro">Questions before you sign? Call or text <a href="tel:+13478543430" style="color:var(--amber)">347-854-3430</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="help" aria-label="Contract" style="padding-top:60px">
+    <div class="inner">
+      <form id="contract" class="contract-form" action="/api/contact" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="Signed client service contract">
+        <div class="hp" aria-hidden="true"><label for="gotcha">Leave this field empty</label><input type="text" id="gotcha" name="_honey" tabindex="-1" autocomplete="off"></div>
+
+        <h3 class="form-section">Client information</h3>
+        <div class="grid2">
+          <div class="field span2">
+            <label class="lab" for="name">Client full name</label>
+            <input type="text" id="name" name="client_name" autocomplete="name" aria-describedby="e-name">
+            <p class="err" id="e-name">Please enter your full name.</p>
+          </div>
+          <div class="field">
+            <label class="lab" for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" aria-describedby="e-phone">
+            <p class="err" id="e-phone">Please enter a phone number.</p>
+          </div>
+          <div class="field">
+            <label class="lab" for="email">Email address</label>
+            <input type="email" id="email" name="email" autocomplete="email" aria-describedby="e-email">
+            <p class="err" id="e-email">Please enter a valid email address.</p>
+          </div>
+          <div class="field span2">
+            <label class="lab" for="address">Address</label>
+            <input type="text" id="address" name="address" autocomplete="street-address" aria-describedby="e-address">
+            <p class="err" id="e-address">Please enter your address.</p>
+          </div>
+        </div>
+
+        <h3 class="form-section">Service selected</h3>
+        <p class="hint fee-note">Clear Path will confirm the service and fee with you before you sign. Fields may be pre-filled from our conversation.</p>
+        <div class="grid2">
+          <div class="field">
+            <label class="lab" for="service">Service type</label>
+            <input type="text" id="service" name="service_type" aria-describedby="e-service">
+            <p class="err" id="e-service">Please enter the service type.</p>
+          </div>
+          <div class="field">
+            <label class="lab" for="fee">Service fee</label>
+            <input type="text" id="fee" name="service_fee" inputmode="decimal" placeholder="$" aria-describedby="e-fee">
+            <p class="err" id="e-fee">Please enter the service fee.</p>
+          </div>
+          <div class="field span2">
+            <label class="lab" for="desc">Description of service</label>
+            <textarea id="desc" name="service_description" class="short" aria-describedby="e-desc"></textarea>
+            <p class="err" id="e-desc">Please describe the service.</p>
+          </div>
+        </div>
+      </form>
+
+      <div class="terms">
+        <h3 class="form-section">1. Parties to this agreement</h3>
+        <p>This Client Service Contract ("Agreement") is entered into between <strong>Clear Path Document Service</strong>, including its founder, staff and any authorized representatives ("Service Provider"), and the client named above ("Client"). By signing this Agreement, both parties agree to the terms below.</p>
+
+        <h3 class="form-section">2. Fees &amp; payment terms</h3>
+        <p>The Client agrees to pay the service fee listed above. The following payment terms apply:</p>
+        <ul>
+          <li>A non-refundable deposit of <strong>$50.00</strong> is required at the time of booking to secure the appointment. This deposit is applied toward the total service fee.</li>
+          <li>The remaining balance is due upon completion of the document preparation, prior to delivery of completed documents.</li>
+          <li>Accepted payment methods: Zelle, Venmo, Cash App or cash.</li>
+          <li>A correction or amendment fee of <strong>$75.00</strong> applies if changes are required after document completion because of inaccurate or incomplete information provided by the Client.</li>
+          <li>Additional follow-up, questions or continued assistance beyond the original scope of service are billed at <strong>$85.00 per hour</strong>.</li>
+        </ul>
+
+        <h3 class="form-section">3. Client responsibilities</h3>
+        <ul>
+          <li>The Client is solely responsible for the accuracy, completeness and truthfulness of all information provided to the Service Provider.</li>
+          <li>The Client must provide all required documents, identification and supporting materials in a timely manner.</li>
+          <li>Delays caused by the Client's failure to provide requested information may result in rescheduling or additional fees.</li>
+          <li>The Client is responsible for reviewing all completed documents before submission to any agency, court or institution.</li>
+        </ul>
+
+        <h3 class="form-section">4. Limitation of services &amp; no legal advice</h3>
+        <div class="notice dark" role="note"><p><strong>Important notice:</strong> Clear Path Document Service is a document preparation service only. Neither the company nor any of its staff, representatives or associates are attorneys or licensed to practice law. No person acting on behalf of Clear Path Document Service is authorized to provide legal advice, legal representation or legal counsel of any kind. The Service Provider makes no guarantee regarding the approval, acceptance or outcome of any document, application, petition or filing prepared under this Agreement. The Client is strongly encouraged to consult a licensed attorney for legal advice.</p></div>
+
+        <h3 class="form-section">5. Refund policy</h3>
+        <ul>
+          <li>The $50.00 booking deposit is <strong>non-refundable</strong> under all circumstances.</li>
+          <li>If the Client cancels services after work has begun, fees for work completed to that point will be retained by the Service Provider.</li>
+          <li>No refunds are issued based on the outcome or result of any submitted document or application.</li>
+        </ul>
+
+        <h3 class="form-section">6. Confidentiality</h3>
+        <p>The Service Provider agrees to keep all Client information strictly confidential and will not share, sell or disclose any personal information to any third party without the Client's written consent, except as required by law.</p>
+
+        <h3 class="form-section">7. Termination</h3>
+        <p>Either party may terminate this Agreement at any time with written or verbal notice. In the event of termination, the Client is responsible for payment of all services rendered up to the date of termination. The non-refundable deposit will not be returned.</p>
+      </div>
+
+      <form id="sign" class="contract-form" action="/api/contact" method="POST" novalidate>
+        <h3 class="form-section">8. Agreement &amp; signature</h3>
+        <div class="notice" role="note"><p>By signing below, the Client acknowledges that they have read, understood and agree to all terms in this Contract. The Client confirms that all information provided is accurate and that they understand Clear Path Document Service does not provide legal advice or guarantee any outcome.</p></div>
+
+        <label class="check" for="ack">
+          <input type="checkbox" id="ack" aria-describedby="e-ack">
+          <span>I have read and agree to all terms of this Client Service Contract.</span>
+        </label>
+        <p class="err" id="e-ack">Please confirm that you agree to the terms.</p>
+
+        <div class="grid2" style="margin-top:20px">
+          <div class="field">
+            <label class="lab" for="sig">Signature</label>
+            <span class="hint">Type your full legal name to sign.</span>
+            <input type="text" id="sig" autocomplete="off" aria-describedby="e-sig" style="font-family:var(--font-head);font-style:italic;font-size:22px">
+            <p class="err" id="e-sig">Please type your full name to sign.</p>
+          </div>
+          <div class="field">
+            <label class="lab" for="sigdate">Date</label>
+            <span class="hint">&nbsp;</span>
+            <input type="text" id="sigdate" readonly>
+          </div>
+        </div>
+
+        <button type="submit" class="btn" id="send">Sign &amp; submit contract</button>
+        <div id="status" role="status" aria-live="polite"></div>
+        <div class="print-bar">
+          <button type="button" class="btn outline" id="print">Print or save as PDF</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="inner">
+    <p class="legal"><strong>Clear Path Document Service is a non-legal document preparation and administrative assistance service. We are not a law firm.</strong> Nothing on this page or in our services is legal advice.</p>
+    <p><br>
+    <a href="mailto:help@clearpathdocumentservice.com">help@clearpathdocumentservice.com</a> &middot; <a href="tel:+13478543430">347-854-3430</a> &middot; clearpathdocumentservice.com</p>
+    <small>&copy; <span id="yr">2026</span> Clear Path Document Service. Serving individuals and families in New York State.</small>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="btn ghost" href="tel:+13478543430">Call or text</a>
+  <a class="btn" href="mailto:help@clearpathdocumentservice.com">Email us</a>
+</div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var info = $('contract'), sign = $('sign'), statusEl = $('status'), send = $('send');
+
+  try { $('yr').textContent = new Date().getFullYear(); } catch (e) {}
+  var today = '';
+  try { today = new Date().toLocaleDateString('en-US'); $('sigdate').value = today; } catch (e) {}
+
+  // Optional pre-fill from the link: ?name=&email=&phone=&service=&fee=&desc=
+  try {
+    var q = new URLSearchParams(location.search);
+    [['name', 'name'], ['email', 'email'], ['phone', 'phone'], ['address', 'address'], ['service', 'service'], ['fee', 'fee'], ['desc', 'desc']]
+      .forEach(function (p) { var v = q.get(p[0]); if (v) { $(p[1]).value = v.slice(0, 500); } });
+  } catch (e) {}
+
+  $('print').addEventListener('click', function () { window.print(); });
+
+  function flag(id, bad) {
+    var el = $(id), m = $('e-' + id);
+    if (m) { m.classList.toggle('show', bad); }
+    if (bad) { el.setAttribute('aria-invalid', 'true'); } else { el.removeAttribute('aria-invalid'); }
+    return bad;
+  }
+  function say(kind, text) { statusEl.className = 'show ' + kind; statusEl.textContent = text; }
+
+  sign.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var emailOk = /^\S+@\S+\.\S+$/.test($('email').value.trim());
+    var checks = [
+      ['name', !$('name').value.trim()],
+      ['phone', !$('phone').value.trim()],
+      ['email', !emailOk],
+      ['address', !$('address').value.trim()],
+      ['service', !$('service').value.trim()],
+      ['fee', !$('fee').value.trim()],
+      ['desc', !$('desc').value.trim()],
+      ['ack', !$('ack').checked],
+      ['sig', !$('sig').value.trim()]
+    ];
+    var firstBad = null;
+    checks.forEach(function (c) { if (flag(c[0], c[1]) && !firstBad) { firstBad = c[0]; } });
+    if (firstBad) { $(firstBad).focus(); return; }
+
+    var data = new FormData(info);
+    data.append('signature', $('sig').value.trim());
+    data.append('signed_date', today);
+    data.append('agreed_to_terms', 'Yes');
+    data.append('signed_from_page', location.pathname);
+
+    send.disabled = true;
+    say('ok', 'Sending your signed contract...');
+    fetch(info.action, { method: 'POST', body: new URLSearchParams(data), headers: { 'Accept': 'application/json' } })
+      .then(function (r) {
+        if (r.ok) {
+          say('ok', 'Thank you. Your signed contract has been sent to Clear Path Document Service. We will be in touch to confirm your appointment and the $50 deposit.');
+          send.hidden = true;
+        } else {
+          say('bad', 'Something went wrong and your contract was not sent. Please try again, or call or text 347-854-3430.');
+          send.disabled = false;
+        }
+      })
+      .catch(function () {
+        say('bad', 'Something went wrong and your contract was not sent. Please try again, or call or text 347-854-3430.');
+        send.disabled = false;
+      });
+  });
+})();
+</script>
+</body>
+</html>

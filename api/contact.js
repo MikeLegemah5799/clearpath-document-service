@@ -44,7 +44,7 @@ module.exports = async (req, res) => {
       from: `Clear Path Website <${process.env.SMTP_USER}>`,
       to: TO,
       replyTo,
-      subject: 'New client intake form',
+      subject: typeof body._subject === 'string' && body._subject.trim() ? body._subject.replace(/[\r\n]+/g, ' ').trim().slice(0, 100) : 'New client intake form',
       text,
       html,
     });
