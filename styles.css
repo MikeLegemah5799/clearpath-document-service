@@ -42,6 +42,7 @@ h3 { font-size: 24px; color: var(--navy); }
 /* nav */
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--navy); padding: 0 60px; height: 68px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 20px rgba(0,0,0,.2); }
 .nav-brand { font-size: 17px; font-weight: 600; color: var(--cream); }
+.nav-brand img { vertical-align: middle; width: 36px; height: 36px; margin: -4px 10px 0 0; }
 .nav-brand span { color: var(--amber); }
 .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
 .nav-links a { font-size: 13px; color: var(--soft); letter-spacing: .04em; text-decoration: none; transition: color .2s; }
@@ -170,6 +171,7 @@ footer small { display: block; font-size: 13px; color: var(--soft); padding-top:
   nav { padding: 0 24px; }
   .nav-links li:not(:last-child) { display: none; }
   .nav-brand { font-size: 15px; }
+  .nav-brand img { width: 30px; height: 30px; margin-right: 8px; }
   section, .hero, footer { padding-left: 24px; padding-right: 24px; }
   section { padding-top: 60px; padding-bottom: 60px; }
   .help { padding-top: 0; }
