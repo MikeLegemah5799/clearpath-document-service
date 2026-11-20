@@ -62,7 +62,7 @@
       <div>
         <p class="eyebrow" style="color:var(--mint)">Client Service Contract</p>
         <h1 id="hero-h" class="long">Let's get your paperwork <em>started</em></h1>
-        <p class="sub">Please read the terms below, fill in your details and sign. Once we receive your signed contract and the $50 booking deposit, we will confirm your appointment.</p>
+        <p class="sub">Please read the terms below, fill in your details and sign. Once we receive your signed contract, we will confirm your appointment.</p>
         <p class="micro">Questions before you sign? Call or text <a href="tel:+13478154045" style="color:var(--amber)">347-815-4045</a>.</p>
       </div>
     </div>
@@ -126,7 +126,7 @@
         <h3 class="form-section">2. Fees &amp; payment terms</h3>
         <p>The Client agrees to pay the service fee listed above. The following payment terms apply:</p>
         <ul>
-          <li>A non-refundable deposit of <strong>$50.00</strong> is required at the time of booking to secure the appointment. This deposit is applied toward the total service fee.</li>
+          <li>Payment follows a <strong>50/50 schedule</strong>: <strong>50%</strong> of the total service fee is due after the full consultation and before work begins, and the remaining <strong>50%</strong> is due when the documents are complete and ready to submit.</li>
           <li>The remaining balance is due upon completion of the document preparation, prior to delivery of completed documents.</li>
           <li>Accepted payment methods: Zelle, Venmo, Cash App or cash.</li>
           <li>A correction or amendment fee of <strong>$75.00</strong> applies if changes are required after document completion because of inaccurate or incomplete information provided by the Client.</li>
@@ -146,7 +146,7 @@
 
         <h3 class="form-section">5. Refund policy</h3>
         <ul>
-          <li>The $50.00 booking deposit is <strong>non-refundable</strong> under all circumstances.</li>
+          <li>The initial <strong>50%</strong> payment is <strong>non-refundable</strong> once work has begun.</li>
           <li>If the Client cancels services after work has begun, fees for work completed to that point will be retained by the Service Provider.</li>
           <li>No refunds are issued based on the outcome or result of any submitted document or application.</li>
         </ul>
@@ -155,7 +155,7 @@
         <p>The Service Provider agrees to keep all Client information strictly confidential and will not share, sell or disclose any personal information to any third party without the Client's written consent, except as required by law.</p>
 
         <h3 class="form-section">7. Termination</h3>
-        <p>Either party may terminate this Agreement at any time with written or verbal notice. In the event of termination, the Client is responsible for payment of all services rendered up to the date of termination. The non-refundable deposit will not be returned.</p>
+        <p>Either party may terminate this Agreement at any time with written or verbal notice. In the event of termination, the Client is responsible for payment of all services rendered up to the date of termination. The initial 50% payment will not be returned once work has begun.</p>
       </div>
 
       <form id="sign" class="contract-form" action="/api/contact" method="POST" novalidate>
@@ -261,7 +261,7 @@
     fetch(info.action, { method: 'POST', body: new URLSearchParams(data), headers: { 'Accept': 'application/json' } })
       .then(function (r) {
         if (r.ok) {
-          say('ok', 'Thank you. Your signed contract has been sent to Clear Path Document Service. We will be in touch to confirm your appointment and the $50 deposit.');
+          say('ok', 'Thank you. Your signed contract has been sent to Clear Path Document Service. We will be in touch to confirm your appointment.');
           send.hidden = true;
         } else {
           say('bad', 'Something went wrong and your contract was not sent. Please try again, or call or text 347-815-4045.');
