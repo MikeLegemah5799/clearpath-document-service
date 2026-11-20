@@ -164,7 +164,7 @@ form .btn:hover { opacity: 1; background: var(--amber); color: var(--navy)!impor
 
 /* footer */
 footer { background: var(--navy); color: var(--soft); padding: 48px 60px 32px; border-top: 1px solid rgba(255,255,255,.06); font-size: 14px; }
-footer p { max-width: 72ch; margin-bottom: 16px; line-height: 1.7; }
+footer p { max-width: none; margin-bottom: 16px; line-height: 1.7; }
 footer strong { color: var(--cream); }
 footer a { color: var(--amber); }
 footer .legal { font-size: 14px; }
@@ -201,6 +201,7 @@ footer small { display: block; font-size: 13px; color: var(--soft); padding-top:
 .trust { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 22px; margin: 0 0 22px; font-size: 14px; color: var(--cream); }
 .trust li::before { content: "\2713"; color: var(--mint); font-weight: 700; margin-right: 8px; }
 .card .more { display: inline-block; color: var(--amber); font-weight: 600; font-size: 14.5px; margin-bottom: 20px; }
+.card .dl { align-self: flex-start; margin-bottom: 20px; }
 
 /* FAQ */
 .faq { background: var(--cream); }
